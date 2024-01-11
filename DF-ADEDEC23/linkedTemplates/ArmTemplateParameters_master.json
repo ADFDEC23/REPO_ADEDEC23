@@ -1,0 +1,60 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "DF-ADEDEC23"
+		},
+		"AzureDatabricks1_accessToken": {
+			"value": ""
+		},
+		"LS_BLOB_connectionString": {
+			"value": ""
+		},
+		"LS_DYNAMICSQLDB_connectionString": {
+			"value": ""
+		},
+		"LS_SQL_connectionString": {
+			"value": ""
+		},
+		"LS_SQL2_connectionString": {
+			"value": ""
+		},
+		"kv_Sql_connectionString": {
+			"value": "Integrated Security=False;Encrypt=True;Connection Timeout=30;Data Source=serverade23.database.windows.net;Initial Catalog=dbsqlserverdec23;User ID=sqllogin"
+		},
+		"AzureBlobStorage1_properties_typeProperties_connectionString_secretName": {
+			"value": "adlskey"
+		},
+		"AzureDatabricks1_properties_typeProperties_existingClusterId": {
+			"value": "1221-024109-ta74y4d9"
+		},
+		"AzureKeyVault_Dec23_properties_typeProperties_baseUrl": {
+			"value": "https://kv-dec23.vault.azure.net/"
+		},
+		"blob_kv_properties_typeProperties_connectionString_secretName": {
+			"value": "adls"
+		},
+		"kv_2_properties_typeProperties_baseUrl": {
+			"value": "https://kv-dec23.vault.azure.net/"
+		},
+		"kv_blob2_properties_typeProperties_connectionString_secretName": {
+			"value": "adlskey2"
+		},
+		"eventrigger1_properties_typeProperties_scope": {
+			"value": "/subscriptions/48e12b0e-eb83-4090-9933-69142cdd5430/resourceGroups/RG-ADEDEC23/providers/Microsoft.Storage/storageAccounts/adlsdec23"
+		},
+		"tumblingtrigger_properties_pipeline_parameters_WindowStartdate": {
+			"value": "@trigger().outputs.windowStartTime"
+		},
+		"tumblingtrigger_properties_pipeline_parameters_WindowEndDate": {
+			"value": "@trigger().outputs.windowEndTime"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}

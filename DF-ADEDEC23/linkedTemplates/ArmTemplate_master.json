@@ -1,0 +1,188 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "DF-ADEDEC23"
+		},
+		"AzureDatabricks1_accessToken": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accessToken' of 'AzureDatabricks1'"
+		},
+		"LS_BLOB_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'LS_BLOB'"
+		},
+		"LS_DYNAMICSQLDB_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'LS_DYNAMICSQLDB'"
+		},
+		"LS_SQL_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'LS_SQL'"
+		},
+		"LS_SQL2_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'LS_SQL2'"
+		},
+		"kv_Sql_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'kv_Sql'",
+			"defaultValue": "Integrated Security=False;Encrypt=True;Connection Timeout=30;Data Source=serverade23.database.windows.net;Initial Catalog=dbsqlserverdec23;User ID=sqllogin"
+		},
+		"AzureBlobStorage1_properties_typeProperties_connectionString_secretName": {
+			"type": "string",
+			"defaultValue": "adlskey"
+		},
+		"AzureDatabricks1_properties_typeProperties_existingClusterId": {
+			"type": "string",
+			"defaultValue": "1221-024109-ta74y4d9"
+		},
+		"AzureKeyVault_Dec23_properties_typeProperties_baseUrl": {
+			"type": "string",
+			"defaultValue": "https://kv-dec23.vault.azure.net/"
+		},
+		"blob_kv_properties_typeProperties_connectionString_secretName": {
+			"type": "string",
+			"defaultValue": "adls"
+		},
+		"kv_2_properties_typeProperties_baseUrl": {
+			"type": "string",
+			"defaultValue": "https://kv-dec23.vault.azure.net/"
+		},
+		"kv_blob2_properties_typeProperties_connectionString_secretName": {
+			"type": "string",
+			"defaultValue": "adlskey2"
+		},
+		"eventrigger1_properties_typeProperties_scope": {
+			"type": "string",
+			"defaultValue": "/subscriptions/48e12b0e-eb83-4090-9933-69142cdd5430/resourceGroups/RG-ADEDEC23/providers/Microsoft.Storage/storageAccounts/adlsdec23"
+		},
+		"tumblingtrigger_properties_pipeline_parameters_WindowStartdate": {
+			"type": "string",
+			"defaultValue": "@trigger().outputs.windowStartTime"
+		},
+		"tumblingtrigger_properties_pipeline_parameters_WindowEndDate": {
+			"type": "string",
+			"defaultValue": "@trigger().outputs.windowEndTime"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "DF-ADEDEC23_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"AzureDatabricks1_accessToken": {
+						"value": "[parameters('AzureDatabricks1_accessToken')]"
+					},
+					"LS_BLOB_connectionString": {
+						"value": "[parameters('LS_BLOB_connectionString')]"
+					},
+					"LS_DYNAMICSQLDB_connectionString": {
+						"value": "[parameters('LS_DYNAMICSQLDB_connectionString')]"
+					},
+					"LS_SQL_connectionString": {
+						"value": "[parameters('LS_SQL_connectionString')]"
+					},
+					"LS_SQL2_connectionString": {
+						"value": "[parameters('LS_SQL2_connectionString')]"
+					},
+					"AzureDatabricks1_properties_typeProperties_existingClusterId": {
+						"value": "[parameters('AzureDatabricks1_properties_typeProperties_existingClusterId')]"
+					},
+					"AzureKeyVault_Dec23_properties_typeProperties_baseUrl": {
+						"value": "[parameters('AzureKeyVault_Dec23_properties_typeProperties_baseUrl')]"
+					},
+					"kv_2_properties_typeProperties_baseUrl": {
+						"value": "[parameters('kv_2_properties_typeProperties_baseUrl')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "DF-ADEDEC23_ArmTemplate_1",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_1.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"kv_Sql_connectionString": {
+						"value": "[parameters('kv_Sql_connectionString')]"
+					},
+					"AzureBlobStorage1_properties_typeProperties_connectionString_secretName": {
+						"value": "[parameters('AzureBlobStorage1_properties_typeProperties_connectionString_secretName')]"
+					},
+					"blob_kv_properties_typeProperties_connectionString_secretName": {
+						"value": "[parameters('blob_kv_properties_typeProperties_connectionString_secretName')]"
+					},
+					"kv_blob2_properties_typeProperties_connectionString_secretName": {
+						"value": "[parameters('kv_blob2_properties_typeProperties_connectionString_secretName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'DF-ADEDEC23_ArmTemplate_0')]"
+			]
+		},
+		{
+			"name": "DF-ADEDEC23_ArmTemplate_2",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_2.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"eventrigger1_properties_typeProperties_scope": {
+						"value": "[parameters('eventrigger1_properties_typeProperties_scope')]"
+					},
+					"tumblingtrigger_properties_pipeline_parameters_WindowStartdate": {
+						"value": "[parameters('tumblingtrigger_properties_pipeline_parameters_WindowStartdate')]"
+					},
+					"tumblingtrigger_properties_pipeline_parameters_WindowEndDate": {
+						"value": "[parameters('tumblingtrigger_properties_pipeline_parameters_WindowEndDate')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'DF-ADEDEC23_ArmTemplate_1')]"
+			]
+		}
+	]
+}
