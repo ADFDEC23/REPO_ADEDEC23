@@ -1,0 +1,20 @@
+{
+	"name": "CUS1_csv",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_BLOB",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Binary",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "Cus1.csv",
+				"folderPath": "Input",
+				"container": "deleteactivity"
+			}
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

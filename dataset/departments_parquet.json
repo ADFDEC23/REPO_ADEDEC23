@@ -1,0 +1,34 @@
+{
+	"name": "departments_parquet",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "kv_blob2",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "departments.parquet",
+				"folderPath": "departments",
+				"container": "bronze"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "PAR1\u0015\u0000\u0015d\u0015f",
+				"type": "String"
+			},
+			{
+				"name": "\u0015\u0016\u0015\u0000\u0015\u0006\u0015\b\u001c\u0018\u0004\u000b\u0000\u0000\u0000\u0018\u0004\u0001\u0000\u0000\u0000\u0016\u0000\u0000\u0000\u00002$\u0002\u0000\u0000\u0000\u0016\u0001\u0001\u0000\u0000\u0000\u0001",
+				"type": "String"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
