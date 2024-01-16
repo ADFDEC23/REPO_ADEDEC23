@@ -1,0 +1,32 @@
+{
+	"name": "webactivity",
+	"properties": {
+		"activities": [
+			{
+				"name": "Web1",
+				"type": "WebActivity",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"url": "https://prod-26.centralindia.logic.azure.com:443/workflows/62560be6b7384d0aac010d92a91c23a9/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=dV2aZDyBx6Imy-Szqa7_vJKYtV2uQo_ujmhYHJJE6-M",
+					"method": "POST",
+					"headers": {
+						"Content - Type": "application/json"
+					},
+					"body": {
+						"value": "{\n    \"Pipeline\":\"@{pipeline().Pipeline}\",\n    \"Error\":\"Failed pipeline\"\n}",
+						"type": "Expression"
+					}
+				}
+			}
+		],
+		"annotations": []
+	}
+}
