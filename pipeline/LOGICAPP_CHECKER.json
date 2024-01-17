@@ -86,7 +86,7 @@
 						"Content-Type": "application/json"
 					},
 					"body": {
-						"value": "{\n    \"PipelineName\" : \"@{pipeline().Pipeline}\",\n    \"DatafactoryName\" : \"@{pipeline().DataFactory}\"\n    \"ErrorMessage\" : \"ERROR203-FILENOT FOUND\"\n}",
+						"value": "{\n    \"PipelineName\" : \"@{pipeline().Pipeline}\",\n    \"DatafactoryName\" : \"@{pipeline().DataFactory}\",\n    \"ErrorMessage\" : \"ERROR203-FILENOT FOUND\"\n}",
 						"type": "Expression"
 					}
 				}
