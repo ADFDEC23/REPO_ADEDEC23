@@ -1,5 +1,13 @@
 {
 	"name": "DF-ADEDEC23",
+	"properties": {
+		"globalParameters": {
+			"GlobalInput": {
+				"type": "string",
+				"value": "Test"
+			}
+		}
+	},
 	"location": "centralindia",
 	"identity": {
 		"type": "SystemAssigned",
